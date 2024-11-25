@@ -3,10 +3,6 @@ import streamlit as st
 import plotly.express as px 
 
 df = pd.read_csv('vehicles_us.csv')
-columns_to_replace = ['model_year', 'cylinders', 'odometer', 'paint_color', 'is_4wd']
-
-for column in columns_to_replace:
-    df[column] = df[column].fillna(0)
 
 st.title ('Vehicle Selection App')
 st.subheader ('Filter and choose your ideal vehicle')
