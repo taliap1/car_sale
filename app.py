@@ -4,6 +4,13 @@ import plotly.express as px
 
 df = pd.read_csv('vehicles_us.csv')
 
+df['paint_color'] = df['paint_color'].fillna('unknown')
+df['is_4wd'] = df['is_4wd'].fillna(0)
+df['model_year'] = df['model_year'].fillna(df.groupby('model')['model_year'].transform('median'))
+df['odometer'] = df['odometer'].fillna(df.groupby('model_year')['odometer'].transform('median'))
+df['cylinders'] = df['cylinders'].fillna(df.groupby('model')['cylinders'].transform('median'))
+df['odometer'] = df['odometer'].fillna(0)
+
 st.title ('Vehicle Selection App')
 st.subheader ('Filter and choose your ideal vehicle')
 
