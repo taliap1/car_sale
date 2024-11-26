@@ -43,4 +43,4 @@ fig2 = px.scatter(filtered_df, x = 'model_year', y = 'price', title = 'Price vs.
 st.plotly_chart(fig2)
 
 st.write('Here is the list of recommended vehicles')
-st.dataframe(filtered_df.sample(40))
+st.write(filtered_df.sample(40))
