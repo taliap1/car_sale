@@ -3,6 +3,7 @@ import streamlit as st
 import plotly.express as px 
 
 df = pd.read_csv('vehicles_us.csv')
+df['price'] = df['price'].astype('int64')
 
 df['paint_color'] = df['paint_color'].fillna('unknown')
 df['is_4wd'] = df['is_4wd'].fillna(0)
