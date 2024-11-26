@@ -26,10 +26,9 @@ filtered_df = df[df['price'].between(price_range[0], price_range[1]+1)]
 include_condition = st.checkbox("Filter by Vehicle Condition")
 
 if include_condition:
-    selected_condition = st.selectbox("Select Vehicle Condition", options=df["condition"].unique())
+    selected_condition = st.selectbox("Select Vehicle Condition", options=filtered_df["condition"].unique())
     filtered_df = filtered_df[filtered_df["condition"] == selected_condition]
-else:
-    filtered_df = df
+
     
 st.write('Here are your options price distribution by type')
 
