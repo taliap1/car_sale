@@ -9,6 +9,7 @@ df['is_4wd'] = df['is_4wd'].fillna(0)
 df['model_year'] = df['model_year'].fillna(df.groupby('model')['model_year'].transform('median'))
 df['odometer'] = df['odometer'].fillna(df.groupby('model_year')['odometer'].transform('median'))
 df['cylinders'] = df['cylinders'].fillna(df.groupby('model')['cylinders'].transform('median'))
+
 df['odometer'] = df['odometer'].fillna(0)
 
 st.title ('Vehicle Selection App')
@@ -28,7 +29,6 @@ include_condition = st.checkbox("Filter by Vehicle Condition")
 if include_condition:
     selected_condition = st.selectbox("Select Vehicle Condition", options=filtered_df["condition"].unique())
     filtered_df = filtered_df[filtered_df["condition"] == selected_condition]
-
     
 st.write('Here are your options price distribution by type')
 
